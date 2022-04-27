@@ -180,15 +180,15 @@ class BPTree
 
         Iterator & operator++()
         {
-            (*this->m_current_data)++;
-            if (*this->m_current_data == this->m_current_node->storage.begin() + this->m_current_node->size) {
-                if (this->m_current_node->r_sibling != nullptr) {
-                    this->m_current_node = this->m_current_node->r_sibling;
-                    this->m_current_data = this->m_current_node->storage.begin();
+            (*m_current_data)++;
+            if (*this->m_current_data == m_current_node->storage.begin() + m_current_node->size) {
+                if (m_current_node->r_sibling != nullptr) {
+                    m_current_node = m_current_node->r_sibling;
+                    m_current_data = m_current_node->storage.begin();
                 }
                 else {
-                    this->m_current_node = nullptr;
-                    this->m_current_data = std::nullopt;
+                    m_current_node = nullptr;
+                    m_current_data = std::nullopt;
                 }
             }
             return *this;
